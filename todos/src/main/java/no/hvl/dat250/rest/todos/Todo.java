@@ -1,5 +1,7 @@
 package no.hvl.dat250.rest.todos;
 
+import com.google.gson.Gson;
+
 import java.util.Objects;
 
 public class Todo {
@@ -45,5 +47,14 @@ public class Todo {
     @Override
     public int hashCode() {
         return Objects.hash(id, summary, description);
+    }
+
+    String toJson () {
+
+        Gson gson = new Gson();
+
+        String jsonInString = gson.toJson(this);
+
+        return jsonInString;
     }
 }
